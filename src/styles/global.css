@@ -1,0 +1,29 @@
+@keyframes spin-slow {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+@keyframes counter-spin-slow {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(-360deg); }
+}
+.animate-spin-slow {
+	animation: spin-slow 40s linear infinite;
+}
+.animate-counter-spin {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	transform-origin: center center;
+	animation: counter-spin-slow 40s linear infinite;
+}
+.animate-pause {
+	/* only pause the animation; don't wipe out transforms so elements stay visually where they are */
+	animation-play-state: paused !important;
+}
+@keyframes fade-in {
+	from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+	to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-fade-in {
+	animation: fade-in 200ms ease-out forwards;
+}

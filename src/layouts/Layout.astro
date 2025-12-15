@@ -1,0 +1,25 @@
+---
+interface Props {
+    /** The title of the page, displayed in the browser tab. */
+    title: string;
+}
+
+const { title } = Astro.props;
+
+// Minified SVG for the favicon (Data URI)
+const faviconSvg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%2338bdf8' stroke-width='8'%3E%3Ccircle cx='50' cy='50' r='12' fill='%2338bdf8' stroke='none'/%3E%3Cline x1='42' y1='15' x2='42' y2='35'/%3E%3Cline x1='58' y1='15' x2='58' y2='35'/%3E%3Cline x1='42' y1='65' x2='42' y2='85'/%3E%3Cline x1='58' y1='65' x2='58' y2='85'/%3E%3Cpath d='M 30 50 A 20 20 0 0 1 42 33'/%3E%3Cpath d='M 30 50 A 20 20 0 0 0 42 67'/%3E%3Cpath d='M 70 50 A 20 20 0 0 0 58 33'/%3E%3Cpath d='M 70 50 A 20 20 0 0 1 58 67'/%3E%3Cpath d='M 22 50 A 28 28 0 0 1 42 22'/%3E%3Cpath d='M 22 50 A 28 28 0 0 0 42 78'/%3E%3Cpath d='M 78 50 A 28 28 0 0 0 58 22'/%3E%3Cpath d='M 78 50 A 28 28 0 0 1 58 78'/%3E%3Cline x1='22' y1='50' x2='30' y2='50'/%3E%3Cline x1='70' y1='50' x2='78' y2='50'/%3E%3C/svg%3E`;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href={faviconSvg} />
+        <title>{title} | JOVERSE</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    </head>
+    <body class="bg-ink-black text-azure-mist font-sans antialiased min-h-screen">
+        <slot />
+    </body>
+</html>
