@@ -27,11 +27,11 @@ const projects = [
 
 <Layout title="Home">
     
-    <main class="pt-24 px-4">
+    <main class="pt-24 px-4 max-w-screen-2xl mx-auto font-bungee">
         <Header />
 
-        <section class="relative max-w-7xl mx-auto h-[80vh] rounded-3xl overflow-hidden border border-cool-sky/20 shadow-2xl mb-20 group">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60 transition duration-700 group-hover:scale-105">
+        <section class="relative mx-auto h-[80vh] rounded-3xl overflow-hidden border border-cool-sky/20 shadow-2xl mb-20 group">
+            <video autoplay loop muted playsinline class="absolute w-full h-full object-cover opacity-60 transition duration-700 group-hover:scale-105">
                 <source src="/hero.mp4" type="video/mp4" />
             </video>
             
@@ -46,8 +46,8 @@ const projects = [
         </section>
 
         <section class="max-w-4xl mx-auto text-center space-y-8 mb-32">
-            <h2 class="text-4xl font-bold text-icy-aqua">What We Do</h2>
-            <p class="text-lg leading-relaxed opacity-80 text-azure-mist">
+            <h2 class="text-4xl font-bold text-ink-black">What We Do</h2>
+            <p class="text-lg leading-relaxed opacity-80 text-ink-black">
                 We bridge the gap between complex software and rugged hardware. From autonomous drone swarms to embedded Rust systems, we build the technology of tomorrow, today.
             </p>
         </section>
@@ -111,7 +111,7 @@ const projects = [
             </div>
         </section>
 
+        <Footer />
     </main>
 
-    <Footer />
 </Layout>
