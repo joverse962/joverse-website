@@ -9,18 +9,21 @@ const projects = [
         title: 'drone962',
         desc: 'Autonomous aerial surveillance system customized for local terrain usage.',
         img: '/drones.jpg',
+        link: '/drone962'
     },
     {
         id: 'esp-csi-tui-rs',
         title: 'esp-csi-tui-rs',
         desc: 'Rust-based Terminal User Interface for visualizing ESP32 CSI data in real-time.',
         img: '/tui.jpg',
+        link: '/tui'
     },
     {
         id: 'blind-cam',
         title: 'blind-cam',
         desc: 'Assistive computer vision device providing auditory feedback for visually impaired users.',
         img: '/blindCam.jpg',
+        link: '/tft'
     }
 ];
 ---
@@ -65,7 +68,7 @@ const projects = [
 
             <div class="grid md:grid-cols-3 gap-8">
                 {projects.map((project, index) => (
-                    <a href={`/projects/${project.id}`} class="group relative block h-[450px] overflow-hidden rounded-3xl bg-ink-black border border-cool-sky/20 shadow-lg hover:shadow-icy-aqua/20 transition-all duration-500 hover:-translate-y-2">
+                    <a href={`${project.link}`} class="group relative block h-[450px] overflow-hidden rounded-3xl bg-ink-black border border-cool-sky/20 shadow-lg hover:shadow-icy-aqua/20 transition-all duration-500 hover:-translate-y-2">
                         
                         <div class="h-3/5 w-full overflow-hidden relative">
                             <div class="absolute inset-0 bg-gradient-to-t from-ink-black via-transparent to-transparent z-10 opacity-90"></div>

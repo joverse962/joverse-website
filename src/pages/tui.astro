@@ -1,0 +1,245 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TuiCarousel from '../components/TuiCarousel.jsx'; // Import the new component
+
+const techStack = [
+    { 
+        name: 'Rust', 
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg', 
+        desc: 'Memory-safe systems programming for the core logic and serial communication.' 
+    },
+    { 
+        name: 'Ratatui', 
+        icon: 'https://raw.githubusercontent.com/ratatui-org/ratatui/main/assets/logo.png',
+        desc: 'The underlying framework for building the rich Terminal User Interface.' 
+    },
+    { 
+        name: 'ESP32', 
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg', 
+        desc: 'Hardware target. Supports Sniffer, Station, and AP modes.' 
+    },
+    { 
+        name: 'Rerun.io', 
+        icon: 'https://avatars.githubusercontent.com/u/107666245?v=4', 
+        desc: 'High-performance visualizer for streaming 3D waterfall data and complex histograms.' 
+    }
+];
+
+const modes = [
+    { mode: "Sniffer", desc: "Passive Intercept. Monitors all traffic on a specific channel." },
+    { mode: "Station", desc: "Network Uplink. Connects to a router and injects ping traffic." },
+    { mode: "AP Mode", desc: "Broadcast Beacon. Acts as an access point to solicit connections." }
+];
+
+// Expanded Gallery Data
+const gallery = [
+    {
+        title: "Configuration Settings",
+        desc: "Set operation protocols, target specific SSIDs, configure packet injection rates, and toggle hardware flags before initialization[cite: 75].",
+        img: "/settings.png"
+    },
+    {
+        title: "Live Dashboard",
+        desc: "Real-time command center showing Signal Strength (RSSI), Packet Jitter, Noise Floor, and a scrolling Waterfall Heatmap of channel activity.",
+        img: "/tui3.png"
+    },
+    {
+        title: "Signal Time-Series",
+        desc: "Multi-device tracking showing amplitude waves over time. Useful for comparing signal stability across different clients.",
+        img: "/tui1.png"
+    },
+    {
+        title: "Monitor Wizard",
+        desc: "Interactive step-by-step wizard to filter incoming traffic by Device MAC, specific Packet IDs, and Subcarrier indexes.",
+        img: "/tui2.png"
+    },
+    {
+        title: "Packet Inspector",
+        desc: "Micro-analysis of individual packets. [cite_start]View sparklines for all 64 subcarriers simultaneously to detect micro-movements[cite: 322].",
+        img: "/tui4.png"
+    },
+    {
+        title: "CIR Analysis",
+        desc: "Channel Impulse Response visualization. [cite_start]Analyze signal reflections and time-of-flight with real-time Hanning windowing and clutter removal filters[cite: 322, 331].",
+        img: "/cir.png"
+    },
+    {
+        title: "Rerun Visualization",
+        desc: "External Rerun.io integration for 3D waterfall plots, camera fusion, and advanced telemetry replay[cite: 380, 469].",
+        img: "/rerun.png"
+    },
+    {
+        title: "User Manual",
+        desc: "Built-in theory guide and keyboard shortcut reference to help operators navigate the terminal interface efficiently.",
+        img: "/guide.png"
+    }
+];
+---
+
+<Layout title="ESP-CSI-TUI-RS | JOVERSE">
+    <main class="pt-24 px-4 max-w-screen-2xl mx-auto font-bungee">
+        <Header />
+
+    <section class="relative mb-24 rounded-3xl text-ink-black overflow-hidden h-[70vh] flex flex-col items-center justify-center text-center p-6 border border-cool-sky/20 shadow-2xl group">
+            
+            <div class="absolute inset-0 z-0">
+                <img src="/tui1.png" alt="Background" class="w-full h-full object-cover opacity-80 group-hover:opacity-80 transition-opacity duration-700" />
+                <div class="absolute inset-0 bg-gradient-to-t from-ink-black via-ink-black/60 to-ink-black/70"></div>
+            </div>
+
+            <!-- <div class="absolute inset-0 opacity-20 pointer-events-none z-0">
+                <div class="grid grid-cols-12 h-full w-full">
+                    {Array.from({length: 48}).map(() => (
+                        <div class="border-[0.5px] border-icy-aqua/10"></div>
+                    ))}
+                </div>
+            </div> -->
+            
+            <div class="z-10 space-y-6 relative">
+                <div class="inline-block px-4 py-1 rounded-full border border-icy-aqua/50 text-icy-aqua text-xs font-mono bg-icy-aqua/10 backdrop-blur-md mb-4">
+                    v1.0 STABLE // RUST EDITION
+                </div>
+                <h1 class="text-4xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-icy-aqua to-cool-sky drop-shadow-lg">
+                    esp-csi-tui-rs
+                </h1>
+                <p class="text-azure-mist max-w-3xl mx-auto font-light text-lg md:text-2xl font-sans leading-relaxed">
+                    A terminal-based interface for visualizing Wi-Fi Channel State Information using rust and esp32.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center mt-8">
+                    <a href="https://github.com/your-repo/esp-csi-tui-rs" target="_blank" class="px-8 py-4 bg-cool-sky text-ink-black rounded-xl hover:bg-icy-aqua transition-colors font-bold flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(0,255,255,0.4)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View Repository
+                    </a>
+                    <a href="#deep-dive" class="px-8 py-4 border border-cool-sky/50 text-cool-sky rounded-xl hover:bg-cool-sky/10 transition-colors font-bold">
+                        Interface Tour
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-16 mb-32 items-start">
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-3xl font-bold border-l-4 border-cool-sky pl-4 mb-4 text-ink-black">The Concept</h2>
+                    <p class="text-lg opacity-80 leading-relaxed font-sans text-ink-black">
+                        Traditional Wi-Fi signal metrics (RSSI) only give you "loudness." <strong>Channel State Information (CSI)</strong> gives you the "texture" of the room. It breaks the signal down into 64 subcarriers, allowing us to "see" how waves bounce off objects and people.
+                    </p>
+                </div>
+                
+                <div>
+                    <h2 class="text-3xl font-bold border-l-4 border-icy-aqua pl-4 mb-4 text-ink-black">History & Goal</h2>
+                    <p class="text-lg opacity-80 leading-relaxed font-sans text-ink-black">
+                        Created during the <strong>"Connected Motion"</strong> hackathon, this tool was born from a frustration with heavy, Python/C++ frameworks that were unsafe or lacked support for modern ESP32 families.
+                        <br><br>
+                        <strong>The Goal:</strong> Build a zero-latency, memory-safe monitor that runs directly in the terminal, capable of processing high-frequency CSI packets on embedded systems without crashing.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-ink-black rounded-3xl p-8 border border-cool-sky/20 shadow-xl">
+                <h3 class="text-2xl font-bold text-cool-sky mb-6 text-center">System Architecture</h3>
+                <div class="flex flex-col gap-4 font-mono text-sm">
+                    <div class="p-4 rounded-xl bg-[#1a1a1a] border border-cool-sky/30 text-center text-white flex justify-between items-center">
+                        <span class="text-icy-aqua font-bold">ESP32</span> 
+                        <span class="opacity-50">CSI Collector (Sniffer/Station/AP)</span>
+                    </div>
+                    <div class="flex justify-center text-cool-sky text-xl">⬇ USB Serial / WiFi UDP</div>
+                    <div class="p-4 rounded-xl bg-[#1a1a1a] border border-cool-sky/30 text-center text-white flex justify-between items-center">
+                        <span class="text-icy-aqua font-bold">RUST</span> 
+                        <span class="opacity-50">Async Runtime & Math Engine</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-2">
+                        <div class="p-4 rounded-xl bg-[#2a1a2a] border border-magenta/30 text-center text-white">
+                            <span class="text-magenta font-bold">TUI</span><br/>Ratatui
+                        </div>
+                        <div class="p-4 rounded-xl bg-[#1a2a2a] border border-green/30 text-center text-white">
+                            <span class="text-green font-bold">VIZ</span><br/>Rerun.io
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative group">
+                        <img src="/esp32.png" alt="ESP32 Board" class="rounded-xl bg-ink-black border border-ink-black/10 shadow-xl hover:scale-105 transition duration-500" />
+                        <div class="absolute bottom-2 left-2 bg-ink-black/80 text-white text-xs px-2 py-1 rounded">ESP-32</div>
+                    </div>
+                    <div class="relative group mt-8">
+                        <img src="/cam1.jpg" alt="ESP32 Camera" class="rounded-xl border border-ink-black/10 shadow-xl hover:scale-105 transition duration-500" />
+                        <div class="absolute bottom-5 left-2 bg-ink-black/80 text-white text-xs px-2 py-1 rounded">ESP32-CAM</div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-ink-black">Hardware Versatility</h2>
+                    <p class="text-lg font-sans opacity-70 text-ink-black">
+                        The system leverages the ESP32 to capture CSI packets. Depending on your mission profile, the device can be configured in one of three modes:
+                    </p>
+                    <div class="space-y-4">
+                        {modes.map((m) => (
+                            <div class="p-4 bg-white border-l-4 border-cool-sky shadow-md rounded-r-lg">
+                                <h4 class="font-bold text-ink-black">{m.mode}</h4>
+                                <p class="text-sm font-sans opacity-70 text-ink-black">{m.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-32">
+            <h2 class="text-3xl font-bold text-center mb-12 text-ink-black">Powered By</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {techStack.map((tech) => (
+                    <div class="p-6 rounded-2xl bg-white border border-cool-sky/10 shadow-lg hover:shadow-cool-sky/20 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+                        <img src={tech.icon} alt={tech.name} class="w-16 h-16 mb-4 object-contain" />
+                        <h3 class="text-xl font-bold text-ink-black mb-2">{tech.name}</h3>
+                        <p class="text-sm opacity-60 font-sans">{tech.desc}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <section class="mb-32 space-y-12">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-ink-black">Visual Intelligence</h2>
+                <p class="text-ink-black opacity-60">Live streaming to multiple outputs.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="group relative rounded-3xl overflow-hidden border border-cool-sky/30 shadow-lg bg-ink-black h-[400px]">
+                    <div class="absolute top-4 left-4 z-10 px-3 py-1 bg-ink-black/80 backdrop-blur border border-cool-sky/50 rounded-lg text-cool-sky text-sm font-mono">
+                        TERMINAL_VIEW
+                    </div>
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500">
+                        <source src="/tui.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden border border-icy-aqua/30 shadow-lg bg-ink-black h-[400px]">
+                    <div class="absolute top-4 left-4 z-10 px-3 py-1 bg-ink-black/80 backdrop-blur border border-icy-aqua/50 rounded-lg text-icy-aqua text-sm font-mono">
+                        RERUN_3D_VIEW
+                    </div>
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500">
+                        <source src="/rerun-demo.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </section>
+        <section id="deep-dive" class="mb-32">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-ink-black">Interface Deep Dive</h2>
+                <p class="text-ink-black opacity-60">Interactive walkthrough of the terminal capabilities.</p>
+            </div>
+
+            <TuiCarousel slides={gallery} client:visible />
+        </section>
+
+        <Footer />
+    </main>
+</Layout>
