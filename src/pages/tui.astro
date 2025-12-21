@@ -22,7 +22,7 @@ const techStack = [
     },
     { 
         name: 'Rerun.io', 
-        icon: 'https://avatars.githubusercontent.com/u/107666245?v=4', 
+        icon: 'rerunIcon.png', 
         desc: 'High-performance visualizer for streaming 3D waterfall data and complex histograms.' 
     }
 ];
@@ -37,7 +37,7 @@ const modes = [
 const gallery = [
     {
         title: "Configuration Settings",
-        desc: "Set operation protocols, target specific SSIDs, configure packet injection rates, and toggle hardware flags before initialization[cite: 75].",
+        desc: "Set operation protocols, target specific SSIDs, configure packet injection rates, and toggle hardware flags before initialization.",
         img: "/settings.png"
     },
     {
@@ -57,17 +57,17 @@ const gallery = [
     },
     {
         title: "Packet Inspector",
-        desc: "Micro-analysis of individual packets. [cite_start]View sparklines for all 64 subcarriers simultaneously to detect micro-movements[cite: 322].",
+        desc: "Micro-analysis of individual packets. View sparklines for all 64 subcarriers simultaneously to detect micro-movements.",
         img: "/tui4.png"
     },
     {
         title: "CIR Analysis",
-        desc: "Channel Impulse Response visualization. [cite_start]Analyze signal reflections and time-of-flight with real-time Hanning windowing and clutter removal filters[cite: 322, 331].",
+        desc: "Channel Impulse Response visualization. Analyze signal reflections and time-of-flight with real-time Hanning windowing and clutter removal filters.",
         img: "/cir.png"
     },
     {
         title: "Rerun Visualization",
-        desc: "External Rerun.io integration for 3D waterfall plots, camera fusion, and advanced telemetry replay[cite: 380, 469].",
+        desc: "External Rerun.io integration for 3D waterfall plots, camera fusion, and advanced telemetry replay.",
         img: "/rerun.png"
     },
     {
@@ -88,14 +88,6 @@ const gallery = [
                 <img src="/tui1.png" alt="Background" class="w-full h-full object-cover opacity-80 group-hover:opacity-80 transition-opacity duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-ink-black via-ink-black/60 to-ink-black/70"></div>
             </div>
-
-            <!-- <div class="absolute inset-0 opacity-20 pointer-events-none z-0">
-                <div class="grid grid-cols-12 h-full w-full">
-                    {Array.from({length: 48}).map(() => (
-                        <div class="border-[0.5px] border-icy-aqua/10"></div>
-                    ))}
-                </div>
-            </div> -->
             
             <div class="z-10 space-y-6 relative">
                 <div class="inline-block px-4 py-1 rounded-full border border-icy-aqua/50 text-icy-aqua text-xs font-mono bg-icy-aqua/10 backdrop-blur-md mb-4">

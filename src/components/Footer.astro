@@ -1,9 +1,47 @@
-<footer class="mt-20 py-10 px-4 max-w-screen-2xl mx-auto">
-    <div class=" mx-auto bg-gradient-to-r from-ink-black to-[#0c2431] border border-cool-sky/20 rounded-2xl p-8 flex flex-col md:flex-row justify-between items-center shadow-2xl">
-        <div class="text-center md:text-left mb-4 md:mb-0">
-            <h3 class="text-xl font-bold text-icy-aqua">JOVERSE</h3>
-            <p class="text-xs opacity-60">Innovating Motion & Vision</p>
+<footer class="max-w-screen-2xl mx-auto">
+    <div class="mx-auto bg-gradient-to-r from-ink-black to-[#0c2431] border border-cool-sky/20 -2xl p-8 shadow-2xl">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            
+            <div class="flex flex-col items-center md:items-start space-y-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-icy-aqua">JOVERSE</h3>
+                    <p class="text-xs opacity-60 tracking-wider">Innovating Motion & Vision</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="text-cool-sky hover:text-icy-aqua transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:contact@joverse.com" class="text-cool-sky hover:text-icy-aqua transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center md:items-start space-y-2">
+                <h4 class="font-semibold text-cool-sky mb-2">Explore</h4>
+                <a href="/" class="text-sm opacity-70 hover:opacity-100 hover:text-icy-aqua transition-all">Home</a>
+                <a href="/about-us" class="text-sm opacity-70 hover:opacity-100 hover:text-icy-aqua transition-all">About Us</a>
+                <a href="/contact-us" class="text-sm opacity-70 hover:opacity-100 hover:text-icy-aqua transition-all">Contact Us</a>
+            </div>
+
+            <div class="flex flex-col items-center md:items-start space-y-2">
+                <h4 class="font-semibold text-cool-sky mb-2">Projects</h4>
+                <a href="/drone962" class="text-sm opacity-70 hover:opacity-100 hover:text-icy-aqua transition-all">drone962</a>
+                <a href="/tui" class="text-sm opacity-70 hover:opacity-100 hover:text-icy-aqua transition-all">esp-csi-tui-rs</a>
+                <a href="/blind-cam" class="text-sm opacity-70 hover:opacity-100 hover:text-icy-aqua transition-all">blind-cam</a>
+            </div>
         </div>
-        <p class="text-sm opacity-50">&copy; 2025 JOVERSE Team. All rights reserved.</p>
+
+        <div class="border-t border-cool-sky/20 my-6"></div>
+
+        <div class="text-center md:text-left">
+            <p class="text-sm opacity-50">&copy; 2025 JOVERSE Team. All rights reserved.</p>
+        </div>
     </div>
 </footer>

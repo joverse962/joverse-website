@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TuiCarousel from '../components/TuiCarousel.jsx'; 
+
+// Hardware Components Data
+const hardwareStack = [
+    { 
+        title: 'ESP32-C3 Mini', 
+        img: '/blind-cam/esp32.png', // Mapped from your upload
+        desc: 'The brain. RISC-V single-core MCU handling high-frequency CSI packet sniffing.' 
+    },
+    { 
+        title: '1.8" TFT Display', 
+        img: '/blind-cam/tft.png', // Mapped from your upload
+        desc: 'SPI Interface screen for real-time spectral rendering and histograms.' 
+    },
+    { 
+        title: 'LiPo Power', 
+        img: '/drone962/battery.png', // Reusing battery asset from drone
+        desc: 'Internal rechargeable power source for true cordless field analysis.' 
+    },
+    { 
+        title: 'Tactile IO', 
+        img: '/drone962/esp.png', // Placeholder icon
+        desc: 'Physical buttons for mode switching (Spec/Fall/Stat/Cir) on the fly.' 
+    }
+];
+
+// Gallery Data using the uploaded images
+const gallery = [
+    {
+        title: "Spectral View",
+        desc: "Real-time frequency domain representation of the Wi-Fi channel.",
+        img: "/blind-cam/pic2.jpg"
+    },
+    {
+        title: "Waterfall Plot",
+        desc: "Historical heat map allowing users to see movement patterns over time.",
+        img: "/blind-cam/pic5.jpg"
+    },
+    {
+        title: "Signal Statistics",
+        desc: "Monitoring packet intensity and noise floor levels.",
+        img: "/blind-cam/pic1.jpg"
+    },
+    {
+        title: "CIR Analysis",
+        desc: "Channel Impulse Response visualization for multipath reflection tracking.",
+        img: "/blind-cam/pic3.jpg"
+    }
+];
+---
+
+<Layout title="Blind-Cam | JOVERSE">
+    <main class="pt-24 px-4 max-w-screen-2xl mx-auto font-bungee">
+        <Header />
+
+        {/* HERO SECTION */}
+        <section class="relative mb-24 rounded-3xl text-ink-black overflow-hidden h-[75vh] flex flex-col items-center justify-center text-center p-6 border border-cool-sky/20 shadow-2xl group">
+            
+            <div class="absolute inset-0 z-0">
+                {/* Main Hero Image */}
+                <img src="/blind-cam/hero1.png" alt="Blind Cam Hero" class="w-full h-full object-cover opacity-60  transition-opacity duration-700 blur-[2px] " />
+                <div class="absolute inset-0 bg-gradient-to-t from-ink-black via-ink-black/50 to-ink-black/60"></div>
+            </div>
+            
+            <div class="z-10 space-y-6 relative max-w-4xl">
+                <div class="inline-flex gap-3 justify-center mb-4">
+                    <div class="px-4 py-1 rounded-full border border-icy-aqua/50 text-icy-aqua text-xs font-mono bg-icy-aqua/10 backdrop-blur-md mb-4">
+                        PORTABLE UNIT
+                    </div>
+                    <div class="px-4 py-1 rounded-full border border-icy-aqua/50 text-icy-aqua text-xs font-mono bg-icy-aqua/10 backdrop-blur-md mb-4">
+                        SNIFFER MODE: ACTIVE
+                    </div>
+                </div>
+
+                <h1 class="text-4xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-icy-aqua to-cool-sky drop-shadow-lg">
+                    BLIND-CAM
+                </h1>
+                
+                <p class="text-azure-mist font-light text-lg md:text-2xl leading-relaxed drop-shadow-md">
+                    A handheld scope for the invisible world. <br>Real-time Wi-Fi Channel State Information (CSI) visualization powered by ESP32.
+                </p>
+
+                <div class="flex flex-col md:flex-row gap-4 justify-center mt-8">
+                    <a href="#demo" class="px-8 py-4 bg-white/10 border border-white/20 text-white rounded-xl hover:bg-white/20 transition-all font-bold backdrop-blur-sm flex items-center gap-2">
+                        <span class="relative flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                        </span>
+                        Watch Demo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        {/* OVERVIEW SECTION */}
+        <section class="mb-32 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-ink-black border-l-4 border-ink-black pl-4">The "Blind" Concept</h2>
+                    <p class="text-lg opacity-80 text-ink-black leading-relaxed">
+                        Cameras capture light; the <strong>Blind-Cam</strong> captures data. We are swimming in a sea of Wi-Fi signals that bounce off walls, furniture, and bodies.
+                        <br><br>
+                        By decoding the <strong>Channel State Information (CSI)</strong> on a portable device, we can "see" movement and environmental changes without a lens. It effectively acts as a handheld sonar for the electromagnetic spectrum.
+                    </p>
+                </div>
+                <div class="bg-ink-black p-8 rounded-2xl border border-cool-sky/10 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20">
+                        <img src="/blind-cam/esp32.png" class="w-32 rotate-12" />
+                    </div>
+                    <h3 class="text-white text-xl mb-4 font-bungee">CURRENT CAPABILITIES</h3>
+                    <ul class="space-y-4 text-gray-400 font-bungee text-sm">
+                        <li class="flex items-center gap-3">
+                            <span class="text-green">✔</span> 
+                            <span><strong>Sniffer Mode:</strong> Passive traffic monitoring.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green">✔</span> 
+                            <span><strong>Portable:</strong> Battery operated & self-contained.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-green">✔</span> 
+                            <span><strong>Live Viz:</strong> 60FPS TFT rendering.</span>
+                        </li>
+                        <li class="flex items-center gap-3 opacity-50">
+                            <span class="text-yellow-500">⏳</span> 
+                            <span><strong>Station Mode:</strong> Uplink injection (In Dev).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        {/* 3D DESIGN SECTION (Modeled after Page 1) */}
+        <section class="mb-32 relative">
+             {/* Background decorative element */}
+             <div class="absolute -top-10 -left-10 w-64 h-64 bg-magenta/10 rounded-full blur-3xl -z-10"></div>
+
+            <div class="bg-ink-black rounded-3xl p-8 md:p-12 border border-cool-sky/20 shadow-2xl overflow-hidden relative group">
+                <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                    
+                    {/* Left: Image Grid */}
+                     <div class="grid grid-cols-2 gap-4 h-full">
+                        {/* Main Tall Image - Shows the full stand/body */}
+                        <div class="col-span-2 md:col-span-1 md:row-span-2 h-64 md:h-auto bg-white/5 border border-white/10 rounded-xl flex items-center justify-center relative overflow-hidden">
+                            <img src="/blind-cam/pic1.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                        </div>
+                        {/* Detail Shot 1 - The Screen Enclosure */}
+                        <div class="h-48 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center relative overflow-hidden">
+                            <img src="/blind-cam/pic4.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                        </div>
+                        {/* Detail Shot 2 - Side Profile */}
+                        <div class="h-48 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center relative overflow-hidden">
+                            <img src="/blind-cam/pic3.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
+                        </div>
+                    </div>
+
+                    {/* Right: Text Content */}
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 border border-magenta/50 rounded-full text-magenta text-xs font-mono mb-2">
+                            RAPID PROTOTYPING // FDM
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">
+                            Modular Housing Design
+                        </h2>
+                        <p class="text-gray-400 leading-relaxed ">
+                            Designed in CAD and fabricated at the <strong>Makers Space</strong>, the unit is split into two distinct functional modules to allow for easy maintenance and battery swapping.
+                        </p>
+
+                        <div class="space-y-6 mt-6">
+                            <div class="border-l-2 border-icy-aqua pl-4">
+                                <h4 class="text-white font-bold text-lg">01. The Head (Compute Unit)</h4>
+                                <p class="text-sm text-gray-500  mt-1">
+                                    Houses the ESP32, TFT screen, and sensitive wiring. Designed with tight tolerances to friction-fit the display without screws.
+                                </p>
+                            </div>
+                            
+                            <div class="border-l-2 border-magenta pl-4">
+                                <h4 class="text-white font-bold text-lg">02. The Spine (Power & Mount)</h4>
+                                <p class="text-sm text-gray-500 mt-1">
+                                    A robust tripod-style mount that contains the battery cells and cable management, keeping the center of gravity low for stability.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        {/* HARDWARE CAROUSEL */}
+        <section id="hardware" class="mb-32 bg-gradient-to-r from-cool-sky via-white to-cool-sky py-10 rounded-2xl shadow-lg">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-ink-black">Component Manifest</h2>
+                <p class="text-ink-black opacity-60">Low cost, high availability parts.</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                {hardwareStack.map((item) => (
+                    <div class="
+                        group relative 
+                        w-[220px] flex flex-col items-center 
+                        bg-white rounded-2xl p-4 
+                        border border-gray-200 shadow-md 
+                        hover:border-magenta/50 hover:shadow-[0_0_15px_rgba(255,0,255,0.15)] 
+                        transition-all duration-300
+                    ">
+                        <div class="
+                            w-full aspect-square mb-4 
+                            bg-gray-50 rounded-xl 
+                            flex items-center justify-center 
+                            p-2 overflow-hidden
+                        ">
+                            <img 
+                                src={item.img} 
+                                alt={item.title} 
+                                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300" 
+                            />
+                        </div>
+
+                        <h3 class="text-ink-black font-bold text-sm mb-2 text-center uppercase tracking-wide">
+                            {item.title}
+                        </h3>
+                        
+                        <p class="text-[10px] text-gray-500 text-center leading-relaxed">
+                            {item.desc}
+                        </p>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        {/* DEMO VIDEO */}
+        <section id="demo" class="mb-32 space-y-12">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-ink-black">Field Test</h2>
+                <p class="text-ink-black opacity-60">
+                    Live spectral analysis running on the 1.8" display.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto group relative rounded-3xl overflow-hidden border-4 border-ink-black shadow-2xl bg-black aspect-video">
+                <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                    <source src="/blind-cam/demo.mov" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        {/* GALLERY */}
+        <section class="mb-32">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-ink-black">Visual Modes</h2>
+                <p class="text-ink-black opacity-60">The various ways we render the invisible.</p>
+            </div>
+            
+            <TuiCarousel slides={gallery} client:visible />
+        </section>
+
+        <Footer />
+    </main>
+</Layout>

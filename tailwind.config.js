@@ -11,7 +11,6 @@ export default {
 				'azure-mist': '#E9FEFC',
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
 				alfa: ['"Alfa Slab One"', 'serif'],
 				spice: ['"Bungee Spice"', 'cursive'],
 				bungee: ['"Bungee"', 'cursive'],
