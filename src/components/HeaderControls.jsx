@@ -92,7 +92,7 @@ export default function HeaderControls() {
               <a href="/blind-cam" onClick={closePanel} className="py-2 px-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
                 blind-cam
               </a>
-              <a href="/projects" onClick={closePanel} className="py-2 px-3 text-xs font-bold uppercase tracking-widest text-cool-sky hover:text-icy-aqua mt-1">
+              <a href="/projects" onClick={closePanel} className="py-2 px-3 text-xs font-bold uppercase tracking-widest text-crail hover:text-icy-aqua mt-1">
                 View All Projects
               </a>
             </div>

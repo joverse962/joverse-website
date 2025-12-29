@@ -9,6 +9,10 @@ export default {
 				'icy-aqua': '#C1FEFF',
 				'cool-sky': '#61ADFD',
 				'azure-mist': '#E9FEFC',
+				'Woodsmoke': '#13161b',
+				'crail': '#c46541',
+				'minsk': '#443096',
+				'hippie-blue': '#4d9da6'
 			},
 			fontFamily: {
 				alfa: ['"Alfa Slab One"', 'serif'],
@@ -19,4 +23,11 @@ export default {
 	},
 	plugins: [],
 }
+
+
+// $mauve-shadow: rgba(72, 37, 49, 1);
+// $ink-black: rgba(13, 17, 23, 1);
+// $onyx: rgba(8, 10, 14, 1);
+// $deep-twilight: rgba(39, 32, 96, 1);
+// $prussian-blue: rgba(15, 26, 51, 1);
 

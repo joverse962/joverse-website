@@ -41,7 +41,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
       <div>
-        <label className="block text-icy-aqua font-bungee mb-1 text-sm">Name</label>
+        <label className="block text-crail font-bungee mb-1 text-sm">Name</label>
         <input
           type="text"
           name="name"
@@ -52,7 +52,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-icy-aqua font-bungee mb-1 text-sm">Email</label>
+        <label className="block text-crail font-bungee mb-1 text-sm">Email</label>
         <input
           type="email"
           name="email"
@@ -63,7 +63,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-icy-aqua font-bungee mb-1 text-sm">Message</label>
+        <label className="block text-crail font-bungee mb-1 text-sm">Message</label>
         <textarea
           name="message"
           required
@@ -76,7 +76,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="mt-2 bg-cool-sky hover:bg-icy-aqua text-ink-black font-bungee py-3 px-6 transition-colors disabled:opacity-50"
+        className="mt-2 bg-crail hover:bg-crail/80 text-ink-black font-bungee py-3 px-6 transition-colors disabled:opacity-50"
       >
         {status === 'sending' ? 'Sending...' : 'Send Message'}
       </button>
