@@ -136,55 +136,76 @@ const gallery = [
 
         {/* 3D DESIGN SECTION (Modeled after Page 1) */}
         <section class="mb-32 relative">
-             {/* Background decorative element */}
-             <div class="absolute -top-10 -left-10 w-64 h-64 bg-magenta/10 rounded-full blur-3xl -z-10"></div>
+            {/* Background decorative element */}
+            <div class="absolute -top-10 -left-10 w-64 h-64 bg-magenta/10 rounded-full blur-3xl -z-10"></div>
 
             <div class="bg-Woodsmoke rounded-3xl p-8 md:p-12 border border-cool-sky/20 shadow-2xl overflow-hidden relative group">
-                <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
-                    
-                    {/* Left: Image Grid */}
-                     <div class="grid grid-cols-2 gap-4 h-full">
-                        {/* Main Tall Image - Shows the full stand/body */}
-                        <div class="col-span-2 md:col-span-1 md:row-span-2 h-64 md:h-auto bg-white/5 border border-white/10 rounded-xl flex items-center justify-center relative overflow-hidden">
-                            <img src="/blind-cam/pic1.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
-                        </div>
-                        {/* Detail Shot 1 - The Screen Enclosure */}
-                        <div class="h-48 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center relative overflow-hidden">
-                            <img src="/blind-cam/pic4.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
-                        </div>
-                        {/* Detail Shot 2 - Side Profile */}
-                        <div class="h-48 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center relative overflow-hidden">
-                            <img src="/blind-cam/pic3.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity" />
-                        </div>
-                    </div>
+                
+                {/* Container: Changed to Flex Column to stack Text on top of Images */}
+                <div class="flex flex-col gap-10 relative z-10">
 
-                    {/* Right: Text Content */}
-                    <div class="space-y-6">
+                    {/* Top: Text Content */}
+                    <div class="space-y-6 max-w-3xl">
                         <div class="inline-block px-3 py-1 border border-magenta/50 rounded-full text-magenta text-xs font-mono mb-2">
                             RAPID PROTOTYPING // FDM
                         </div>
                         <h2 class="text-3xl md:text-4xl font-bold text-white">
                             Modular Housing Design
                         </h2>
-                        <p class="text-gray-400 leading-relaxed ">
-                            Designed in CAD and fabricated at the <strong>Makers Space</strong>, the unit is split into two distinct functional modules to allow for easy maintenance and battery swapping.
+                        <p class="text-gray-400 leading-relaxed text-lg">
+                            Designed in CAD and fabricated at the <strong>Makers Space</strong>, the unit is split into two distinct functional modules (body & cover) to allow for easy maintenance and friendly design.
                         </p>
 
-                        <div class="space-y-6 mt-6">
+                        <div class="grid md:grid-cols-2 gap-6 mt-4">
                             <div class="border-l-2 border-icy-aqua pl-4">
-                                <h4 class="text-white font-bold text-lg">01. The Head (Compute Unit)</h4>
-                                <p class="text-sm text-gray-500  mt-1">
-                                    Houses the ESP32, TFT screen, and sensitive wiring. Designed with tight tolerances to friction-fit the display without screws.
+                                <h4 class="text-white font-bold text-lg">01. The Body</h4>
+                                <p class="text-sm text-gray-500 mt-1">
+                                    Friction-fit enclosure for the ESP32 & TFT.
                                 </p>
                             </div>
                             
                             <div class="border-l-2 border-magenta pl-4">
-                                <h4 class="text-white font-bold text-lg">02. The Spine (Power & Mount)</h4>
+                                <h4 class="text-white font-bold text-lg">02. The Cover</h4>
                                 <p class="text-sm text-gray-500 mt-1">
-                                    A robust tripod-style mount that contains the battery cells and cable management, keeping the center of gravity low for stability.
+                                    easy on/off cover for simple assembly 
                                 </p>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Bottom: Media Grid (3 Equal Columns) */}
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-80 w-full">
+                        
+                        {/* Item 1: Looped Video (Assembly/Housing) */}
+                        <div class="relative bg-white/5 border border-white/10 rounded-xl overflow-hidden group/item h-64 md:h-full">
+                            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/item:opacity-100 transition-opacity duration-500">
+                                {/* UPDATE PATH TO YOUR VIDEO FILE */}
+                                <source src="/blind-cam/3d-vid.mp4" type="video/mp4" />
+                            </video>
+                            <div class="absolute bottom-3 left-3 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[10px] text-white font-mono border border-white/20">
+                                TIMELAPSE
+                            </div>
+                        </div>
+
+                        {/* Item 2: Static Image (Detail Shot) */}
+                        <div class="relative bg-white/5 border border-white/10 rounded-xl overflow-hidden group/item h-64 md:h-full">
+                            <img src="/printer1.jpg" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/item:opacity-100 transition-opacity duration-500" />
+                            <div class="absolute bottom-3 left-3 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[10px] text-white font-mono border border-white/20">
+                                Prusa XL 3D printer
+                            </div>
+                        </div>
+
+                        {/* Item 3: Looped Video (Profile/Turnaround) */}
+                        <div class="relative bg-white/5 border border-white/10 rounded-xl overflow-hidden group/item h-64 md:h-full">
+                            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/item:opacity-100 transition-opacity duration-500">
+                                {/* UPDATE PATH TO YOUR VIDEO FILE */}
+                                <source src="/blind-cam/3d-vid2.mp4" type="video/mp4" />
+                            </video>
+                            <div class="absolute bottom-3 left-3 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[10px] text-white font-mono border border-white/20">
+                                Printed in APS
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
