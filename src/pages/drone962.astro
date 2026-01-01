@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.astro';
 import TuiCarousel from '../components/TuiCarousel.jsx'; 
 
@@ -18,23 +18,23 @@ const hardwareStack = [
         desc: 'Compact camera module for live visual feedback and recording.' 
     },
     { 
-        title: 'MPU6050', 
+        title: 'MPU6050',
         img: '/drone962/gyro.png', 
         desc: '6-Axis Gyroscope & Accelerometer for real-time stabilization.' 
     },
     { 
-        title: 'MX1508 Driver', 
+        title: 'MX1508 Driver',
         img: '/drone962/motor-drive.png', 
         desc: 'Mini Dual H-Bridge PWM Motor Drive. More efficient than L298N.' 
     },
     { 
-        title: 'Coreless Motors', 
-        img: '/drone962/motor.png', 
+        title: 'Coreless Motors',
+        img: '/drone962/motor.png',
         desc: 'High-RPM brushed DC motors for the 3-inch lightweight frame.' 
     },
     { 
-        title: '3.7v LiPo Battery', 
-        img: '/drone962/battery.png', 
+        title: '3.7v LiPo Battery',
+        img: '/drone962/battery.png',
         desc: 'High-discharge power source optimized for 3-inch frames.' 
     },
 ];
@@ -81,8 +81,8 @@ const gallery = [
 ---
 
 <Layout title="Drone962 | JOVERSE">
-    <main class="pt-24 px-4 max-w-screen-2xl mx-auto font-bungee">
-        <Header />
+    <Header client:load/>
+    <main class="mt-10 px-4 max-w-screen-2xl mx-auto font-bungee">
 
         <section class="relative mb-24 rounded-3xl text-ink-black overflow-hidden h-[70vh] flex flex-col items-center justify-center text-center p-6 border border-cool-sky/20 shadow-2xl group">
             
@@ -149,7 +149,7 @@ const gallery = [
                         {/* Image Container: White BG added to handle transparent images */}
                         <div class="
                             w-full aspect-square mb-4 
-                            bg-icy-aqua rounded-xl 
+                            bg-white rounded-xl 
                             flex items-center justify-center 
                             p-2 overflow-hidden
                         ">

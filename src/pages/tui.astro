@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.astro';
 import TuiCarousel from '../components/TuiCarousel.jsx'; // Import the new component
 
@@ -79,8 +79,8 @@ const gallery = [
 ---
 
 <Layout title="ESP-CSI-TUI-RS | JOVERSE">
-    <main class="pt-24 px-4 max-w-screen-2xl mx-auto font-bungee">
-        <Header />
+    <Header client:load/>
+    <main class="mt-10 px-4 max-w-screen-2xl mx-auto font-bungee">
 
     <section class="relative mb-24 rounded-3xl text-ink-black overflow-hidden h-[70vh] flex flex-col items-center justify-center text-center p-6 border border-cool-sky/20 shadow-2xl group">
             

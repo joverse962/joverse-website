@@ -8,10 +8,8 @@ export default function HeaderControls() {
   const toggleRef = useRef(null);
   const panelRef = useRef(null);
 
-  // Close panel helper
   const closePanel = () => setOpen(false);
 
-  // Handle clicking outside to close
   useEffect(() => {
     function onDocClick(e) {
       if (!open) return;
@@ -26,7 +24,7 @@ export default function HeaderControls() {
   }, [open]);
 
   return (
-    <>
+    <div className="relative">
       {/* Mobile Toggle Button */}
       <button
         ref={toggleRef}
@@ -44,13 +42,14 @@ export default function HeaderControls() {
         ref={panelRef}
         id="mobile-actions-panel"
         className={`
-          absolute left-4 right-4 top-20 
+          absolute right-0 top-full mt-6 w-[90vw] max-w-sm
           bg-ink-black/95 backdrop-blur-xl border border-cool-sky/30 
           rounded-2xl shadow-[0_0_30px_-5px_rgba(56,189,248,0.2)] 
           p-5 z-50 flex flex-col gap-2
-          transition-all duration-300 origin-top
+          transition-all duration-300 origin-top-right
           ${open ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}
         `}
+        style={{ right: '-1rem' }} // Align to right edge of header container
       >
         <nav className="flex flex-col gap-1 text-left">
           {/* Home */}
@@ -85,15 +84,11 @@ export default function HeaderControls() {
               <a href="/drone962" onClick={closePanel} className="py-2 px-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
                 drone962
               </a>
-              {/* Monospace font for the tech project */}
-              <a href="/tui" onClick={closePanel} className="py-2 px-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+              <a href="/tui" onClick={closePanel} className="py-2 px-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors font-mono">
                 esp-csi-tui-rs
               </a>
               <a href="/blind-cam" onClick={closePanel} className="py-2 px-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
                 blind-cam
-              </a>
-              <a href="/projects" onClick={closePanel} className="py-2 px-3 text-xs font-bold uppercase tracking-widest text-crail hover:text-icy-aqua mt-1">
-                View All Projects
               </a>
             </div>
           </div>
@@ -116,6 +111,6 @@ export default function HeaderControls() {
           </a>
         </nav>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,16 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.jsx';
-import Header from '../components/Header.astro';
+import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Contact Us">
-  <div class="bg-gradient-to-r from-minsk via-crail to-minsk min-h-screen w-full flex flex-col relative overflow-x-hidden">
-    
-    <Header />
-
-    <main class="flex-grow flex items-center justify-center p-6 pt-10 pb-10">
+  <Header client:load/>
+  <div class=" mt-10 bg-gradient-to-r from-minsk via-crail to-minsk min-h-screen w-full flex flex-col relative overflow-x-hidden">
+    <main class="flex-grow flex items-center justify-center pb-10">
       <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
         
         <div class="space-y-8 animate-fade-in-left">

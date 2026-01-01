@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.astro';
 
 // --- Data Structs ---
@@ -36,16 +36,16 @@ const teamMembers = [
 ---
 
 <Layout title="About Us | Joverse">
-  <Header />
+  <Header client:load/>
 
-  <main class="w-full bg-gradient-to-r from-minsk via-crail to-minsk pb-10">
+  <main class="mt-10 w-full bg-gradient-to-r from-minsk via-crail to-minsk pb-10">
     
-    <section class="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
-      <div class="absolute inset-0 z-0">
+    <section class="relative w-full h-[500px] flex items-center justify-center overflow-hidden ">
+      <div class="absolute rounded-3xl inset-0 z-0 mx-10 ">
         <img 
           src={pageContent.hero.backgroundImage} 
           alt="Office Background" 
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover rounded-3xl"
         />
         <div class="absolute inset-0 bg-ink-black/60"></div>
       </div>
