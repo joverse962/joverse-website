@@ -25,7 +25,7 @@ const Header = () => {
       `}
     >
       {/* 1. Logo Section (Left) */}
-      <a href="/" className="group flex items-center gap-3 text-icy-aqua hover:text-crail transition shrink-0">
+      <a href="/" className="group flex items-center gap-3 text-white hover:text-crail transition shrink-0">
         <img
           src="/joverse-logo.png"
           alt="Joverse Logo"
