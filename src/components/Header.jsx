@@ -20,7 +20,7 @@ const Header = () => {
       className={`sticky top-0 z-50 flex items-center transition-all duration-300 ease-in-out bg-Woodsmoke backdrop-blur-md shadow-lg border-cool-sky/30
         ${isScrolled 
             ? "w-full rounded-none border-b py-2 px-6" // Scrolled state
-            : "w-[calc(100%-2rem)] max-w-screen-2xl top-4 mx-4 md:mx-auto rounded-2xl border px-6 py-3" // Top state
+            : "w-[calc(100%-2rem)]  top-4 mx-4 md:mx-auto rounded-2xl border px-6 py-3" // Top state
         }
       `}
     >
