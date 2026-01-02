@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.astro';
+import InteractiveLogo from '../components/InteractiveLogo.jsx'
+import ReactorLogo from '../components/ReactorLogo.jsx';
+const logoPath = "/joverseLogo.png";
 
 const projects = [
     {
@@ -32,9 +35,10 @@ const projects = [
 <Layout title="Home">
     
     <Header client:load/>
-    <main class="mt-10 px-4 max-w- mx-auto font-bungee">
-
-        <section class="relative mx-auto h-[600px] rounded-3xl overflow-hidden shadow-2xl mb-20 group">
+    <main class="mt-10 px-4 mx-auto font-bungee">
+        <!-- <InteractiveLogo client:load /> -->
+         <ReactorLogo client:only="react" logoSrc={logoPath} />
+        <!-- <section class="relative mx-auto h-[600px] rounded-3xl overflow-hidden shadow-2xl mb-20 group">
             <video autoplay loop muted playsinline class="absolute w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-105">
                 <source src="/hero.mp4" type="video/mp4" />
             </video>
@@ -47,9 +51,9 @@ const projects = [
                     Redefining autonomous systems with precision engineering.
                 </p>
             </div>
-        </section>
+        </section> -->
 
-        <section class="max-w-4xl mx-auto text-center space-y-8 mb-32">
+        <section class="max-w-4xl mx-auto mt-20 text-center space-y-8 mb-32">
             <h2 class="text-4xl font-bold text-Woodsmoke">What We Do</h2>
             <p class="text-lg leading-relaxed opacity-80 text-Woodsmoke">
                 We bridge the gap between complex software and rugged hardware. From autonomous drone swarms to embedded Rust systems, we build the technology of tomorrow, today.
